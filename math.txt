@@ -1,0 +1,5 @@
+f(x) = 2.5 * x;
+print f(3);
+g(x) = 4*x;
+print f(g(3));
+f(b) = 1;
