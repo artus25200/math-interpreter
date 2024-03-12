@@ -13,7 +13,7 @@ double parse_number(char c);
 
 char *parse_identifier(char c);
 
-static int keyword(char *identifier);
+int keyword(char *identifier);
 
 int scan_token(struct token *token);
 

@@ -1,5 +1,4 @@
 #include <ctype.h>
-#include <i386/types.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -74,8 +73,8 @@ void statements() {
         match(T_IDENT, "variable name");
         char *var = current_token->word;
         match(T_RPAR, ")");
-        match(T_EQUAL, "=");
         current_function = create_function(name, var, NULL);
+        match(T_EQUAL, "=");
         current_function->computation = binary_expression(0);
         add_function(current_function);
         current_function = NULL;
@@ -85,6 +84,8 @@ void statements() {
     case T_PRINT:
       scan_token(current_token);
       tree = binary_expression(0);
+      if (print_AST)
+        print_ast(tree, 0);
       printf("Result : %f\n", interpret_AST(tree, false, 0));
       break;
     default:
@@ -100,7 +101,7 @@ void statements() {
 }
 
 int main(int argc, char **argv) {
-
+  create_default_functions();
   if (!(current_token = malloc(sizeof(struct token))))
     return FAILURE;
   current_token->type = -1;

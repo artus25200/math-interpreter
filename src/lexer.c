@@ -65,6 +65,8 @@ double parse_number(char c) {
       if (point_reached)
         exit(1);
       point_reached = true;
+      c = next();
+      continue;
     }
     if (!point_reached) {
       value = value * 10 + (c - '0');
@@ -155,6 +157,7 @@ int scan_token(struct token *token) {
       double number = parse_number(c);
       token->type = T_INT;
       token->value = number;
+      token->word = NULL;
       break;
     } else if (isalpha(c) || c == '_') {
       char *identifier = parse_identifier(c);
@@ -166,6 +169,7 @@ int scan_token(struct token *token) {
     token->type = T_UNKNOWN;
     token->value = 0;
     token->c = c;
+    token->word = NULL;
     break;
   }
   if (print_tokens)

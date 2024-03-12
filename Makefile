@@ -2,7 +2,7 @@
 CC ?= gcc # FILL: the compiler
 CFLAGS := -g -c -Wall -ggdb -O0
 COBJFLAGS := $(CFLAGS) -c
-
+LFLAGS = -lm
 # path macros
 BIN_PATH := bin
 OBJ_PATH := objs
@@ -28,7 +28,7 @@ default: makedir all
 
 # non-phony targets
 $(TARGET): $(OBJ)
-	$(CC) -o $@ $(OBJ)
+	$(CC) -o $@ $(OBJ) $(LFLAGS)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c*
 	$(CC) $(COBJFLAGS) -o $@ $<

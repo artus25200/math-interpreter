@@ -10,6 +10,13 @@
 struct function *functions[MAX_FUNCTION_COUNT];
 int function_count;
 
+void create_default_functions() {
+  // exp
+  struct ASTNode *tree = make_ast_node(
+      A_POW, make_ast_leaf(A_INT, 2.718281828459), make_ast_leaf(A_VAR, 0), 0);
+  add_function(create_function("exp", "x", tree));
+}
+
 struct function *create_function(char *name, char *var,
                                  struct ASTNode *computation) {
   struct function *function = malloc(sizeof(struct function));
@@ -29,15 +36,14 @@ int add_function(struct function *function) {
     return FAILURE;
   }
   if (get_function(gfibn(function->name)) != NULL) {
-    fatal("Unable to add function %s(%s), it already exists.\n", function->name,
-          function->var);
+    fatal("Unable to create function %s, it already exists.\n", function->name);
     return FAILURE;
   }
   functions[function_count] = function;
   function_count++;
   return SUCCESS;
 }
-
+// Get Function Index By Name
 int gfibn(char *name) {
   struct function *function;
   for (int i = 0; i < MAX_FUNCTION_COUNT; i++) {

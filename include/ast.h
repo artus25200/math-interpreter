@@ -7,7 +7,7 @@ struct ASTNode {
   int op;
   struct ASTNode *left;
   struct ASTNode *right;
-  int value; // for int literals
+  double value; // for int literals
 };
 
 enum {
@@ -25,12 +25,12 @@ enum {
 
 int op_priority(int tokentype);
 
-struct ASTNode *make_ast_leaf(int op, int value);
-struct ASTNode *make_ast_unary(int op, struct ASTNode *child, int value);
+struct ASTNode *make_ast_leaf(int op, double value);
+struct ASTNode *make_ast_unary(int op, struct ASTNode *child, double value);
 struct ASTNode *make_ast_node(int op, struct ASTNode *left,
-                              struct ASTNode *right, int value);
+                              struct ASTNode *right, double value);
 double interpret_AST(struct ASTNode *tree, bool is_func, double func_value);
 
 void free_ast(struct ASTNode *tree);
-
+void print_ast(struct ASTNode *tree, int level);
 #endif
