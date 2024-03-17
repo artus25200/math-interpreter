@@ -11,7 +11,7 @@
 extern struct token *current_token;
 
 struct ASTNode *primary() {
-  struct ASTNode *node;
+  struct ASTNode *node = NULL;
   int f_index;
   switch (current_token->type) {
   case T_INT:

@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 f(x) = 25 * x;
 print f(3);
 g(x) = 4*x;
 print f(g(3));
 
-=======
 print exp(3)/3;
-g(x) = 4*x;
-print 3.5*2 + 1/2;
->>>>>>> c99ae7ad97ca795b9a3893d606898b972dd36ecd
+h(x) = 4*x;
+print 3.5*2 + h(1/2);

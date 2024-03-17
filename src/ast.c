@@ -9,12 +9,8 @@
 #include "../include/parser.h"
 #include "../include/token.h"
 
-<<<<<<< HEAD
-extern stqruct function *functions[MAX_FUNCTION_COUNT];
-=======
 extern struct function *functions[MAX_FUNCTION_COUNT];
 extern struct function *current_function;
->>>>>>> c99ae7ad97ca795b9a3893d606898b972dd36ecd
 extern struct token *current_token;
 
 int operation_priority[] = {0, 0, 10, 10, 20, 20, 30, 0};
