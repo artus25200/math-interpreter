@@ -14,6 +14,12 @@ make
 ```bash
 ./bin/math [-f fichier] [-d/-debug] [-ast]
 ```
+Si aucun fichier n'est spécifié, le programme demandera à l'utilisateur d'entrer une expression :
+```console
+$ ./bin/math
+>>> print 2 * 4;
+Result : 8
+```
 
 ## Syntaxe
 
@@ -31,6 +37,7 @@ Exemples :
 `print exp(8);`
 
 - déclarez une fonction avec :
+
 `f(x) = 3*x;`
 
 `g(x) = x**2;`
