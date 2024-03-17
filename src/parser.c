@@ -30,18 +30,21 @@ struct ASTNode *primary() {
   case T_IDENT:
     f_index = gfibn(current_token->word);
     if (f_index == FUNC_DOES_NOT_EXIST) {
-      fatal("Function %s does not exists. Declare it using %s(x) = ...;",
+      fatal("Function %s does not exists. Declare it using \"%s(x) = ...;\"",
             current_token->word, current_token->word);
     }
     scan_token(current_token);
-    lpar();
-    node = make_ast_unary(A_FUNC, binary_expression(0), f_index);
-    rpar();
+    if (current_token->type == T_LPAR) {
+      scan_token(current_token);
+      node = make_ast_unary(A_FUNC, binary_expression(0), f_index);
+      rpar();
+    }
+    // TODO derivatives
     return node;
   default:
     fatal("Syntax error on token %s", token_to_string(current_token));
   }
-  exit(1); // UNREACHABLE
+  exit(-12); // UNREACHABLE
 }
 
 struct ASTNode *binary_expression(int pp) { // previous priority

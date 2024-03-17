@@ -4,6 +4,6 @@
 #include "ast.h"
 
 struct ASTNode *primary();
-struct ASTNode *binary_expression();
+struct ASTNode *binary_expression(int pp);
 
 #endif // PARSER_H_

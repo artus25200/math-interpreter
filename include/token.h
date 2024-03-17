@@ -13,6 +13,7 @@ enum {
   T_POW,
   T_IDENT,
   T_VAR,
+  T_FUNC,
   T_EOF,
   T_LPAR,
   T_RPAR,

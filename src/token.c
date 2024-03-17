@@ -30,7 +30,8 @@ char *token_to_string(struct token *token) {
   }
 
   size += strlen(value);
-  strcat(string, value);
+  if (token->type == T_INT || token->type == T_IDENT)
+    strcat(string, value);
   strcat(string, "]");
   return string;
 }
@@ -67,6 +68,8 @@ char *token_type_to_string(int token_type) {
     return "T_VAR";
   case T_EQUAL:
     return "T_EQUAL";
+  case T_FUNC:
+    return "T_FUNC";
   }
 
   return "unreachable";
