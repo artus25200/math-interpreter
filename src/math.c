@@ -86,7 +86,7 @@ void statements() {
       tree = binary_expression(0);
       if (print_AST)
         print_ast(tree, 0);
-      printf("Result : %15g\n", interpret_AST(tree, false, 0));
+      printf("Result : %g\n", interpret_AST(tree, false, 0));
       break;
     default:
       fatal("Unrecognized token : %s", Line, token_to_string(current_token));
