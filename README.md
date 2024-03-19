@@ -1,6 +1,6 @@
 # Math interpreter
 
-J'ai créer ce projet afin d'ameliorer mes compétences en programmation. Il permet d'évaluer des expressions mathématiques simples.
+J'ai créé ce projet afin d'améliorer mes compétences en programmation. Il permet d'évaluer des expressions mathématiques simples.
 
 ## Utilisation
 
