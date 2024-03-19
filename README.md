@@ -28,9 +28,9 @@ Result : 8
 
 Exemples :
 
-`print 3 + 4 * 8;`
+`print 3 + 4*8;`
 
-`print (3 + 9) ** 2;`
+`print (3 + 9)**2;`
 
 `print f(3) + 2;`
 
