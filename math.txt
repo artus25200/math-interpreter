@@ -4,5 +4,5 @@ g(x) = 4*x;
 print f(g(3));
 
 print exp(3)/3;
-h(x) = 4*x;
+h(x) = x*3;
 print 3.5*2 + h(1/2);
